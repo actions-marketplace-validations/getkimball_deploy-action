@@ -3,7 +3,7 @@
 echo ${KUBE_CONFIG_DATA} | base64 -d > kubeconfig
 export KUBECONFIG=kubeconfig
 
-result="$(bash -c "${command}")"
+result="$(ash -c "${command}")"
 
 status=$?
 echo ::set-output name=result::$result
