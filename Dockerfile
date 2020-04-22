@@ -4,7 +4,7 @@ ARG KUBECTL_VERSION="1.15.10"
 ARG KUSTOMIZE_VERSION="3.5.4"
 
 RUN apk add py-pip curl bash jq
-RUN pip install awscli
+RUN pip install awscli yq
 RUN curl -L -o /usr/bin/kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/${KUBECTL_VERSION}/2020-02-22/bin/linux/amd64/kubectl
 RUN chmod +x /usr/bin/kubectl
 
