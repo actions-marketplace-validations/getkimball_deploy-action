@@ -1,11 +1,12 @@
 #!/bin/sh -l
 
+set -e
+set -o pipefail
+
+echo foo
+echo $1
+
 echo ${KUBE_CONFIG_DATA} | base64 -d > kubeconfig
 export KUBECONFIG=kubeconfig
 
-result="$(ash -c "${command}")"
-
-status=$?
-echo ::set-output name=result::$result
-echo "$result"
-if [[ $status -eq 0 ]]; then exit 0; else exit 1; fi
+ash -c "set -e;  set -o pipefail; $1"

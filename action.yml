@@ -1,17 +1,14 @@
-name: "Kubernetes Action"
-description: "Interacts with kubernetes clusters calling kubectl commands. Integrates support for AWS EKS."
+name: "Kimball Deploy Actions"
+description: "Deploy in a Kimball sort of way"
 branding:
-  icon: 'anchor'
+  icon: 'command'
   color: 'blue'
 inputs:
-  commands:
-    description: "Commands to run"
+  command:
+    description: 'command to run'
     required: true
-outputs:
-  result:
-    description: "Output of the kubectl command run"
 runs:
-  using: "docker"
-  image: "Dockerfile"
+  using: 'docker'
+  image: 'Dockerfile'
   args:
-    - ${{ inputs.commands }}
+    - ${{ inputs.command }}
