@@ -23,7 +23,8 @@ jobs:
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
-          args: apply deployment.yaml
+          command: |
+            kubectl apply deployment.yaml
 ```
 
 ### EKS Example
@@ -89,7 +90,7 @@ Make sure your users has the proper IAM permissions to access your cluster and t
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
-          args: get deploy foo -o jsonpath="{..image}"
+          command: kubectl get deploy foo -o jsonpath="{..image}"
 
       - name: Print image
         run: 
