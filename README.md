@@ -52,14 +52,15 @@ jobs:
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
-          args: apply deployment.yaml
+          command: |
+            kubectl apply deployment.yaml
 ```
 
 ## Config
 
 ### Secrets
 
-One or more **secrets** needs to be created to store cluster credentials. (see [here](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) for help on creating secrets). 
+One or more **secrets** needs to be created to store cluster credentials. (see [here](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) for help on creating secrets).
 
 #### Basic
 - **KUBE_CONFIG_DATA**: A `base64` representation of `~/.kube/config` file.
@@ -93,7 +94,7 @@ Make sure your users has the proper IAM permissions to access your cluster and t
           command: kubectl get deploy foo -o jsonpath="{..image}"
 
       - name: Print image
-        run: 
+        run:
           echo ${{ steps.image-save.outputs.result }}
 ```
 
