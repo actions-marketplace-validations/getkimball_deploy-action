@@ -25,3 +25,4 @@ jobs:
           aws-iam-authenticator help
           kustomize version
           kubectl version --client=true
+          helm version

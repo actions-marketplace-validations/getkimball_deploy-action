@@ -1,4 +1,5 @@
-FROM alpine:3.11
+
+FROM alpine/helm:3.2.1
 
 ARG KUBECTL_VERSION="1.15.10"
 ARG KUSTOMIZE_VERSION="3.5.4"
