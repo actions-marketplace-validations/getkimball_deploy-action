@@ -3,7 +3,6 @@
 set -e
 set -o pipefail
 
-echo foo
 echo $1
 
 echo ${KUBE_CONFIG_DATA} | base64 -d > kubeconfig
